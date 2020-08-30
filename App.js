@@ -24,7 +24,6 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Chart from './src/container/Chart';
-import Testforceupdate from './src/container/testforceupdate';
 
 const App = () => {
   return (
