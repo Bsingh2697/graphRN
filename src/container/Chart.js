@@ -58,7 +58,6 @@ const Chart = () => {
           {/* <View style={styles.container}> */}
                 <VictoryChart  
                 theme={VictoryTheme.material}
-                width={400}
                 containerComponent={
                     <VictoryZoomContainer
                         allowPan={true}
