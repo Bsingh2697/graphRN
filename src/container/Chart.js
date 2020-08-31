@@ -44,9 +44,10 @@ const Chart = () => {
             setRefresh(false)
             let respData = JSON.parse(e.data)
             let x = data.length
-            // let y = `${parseFloat(respData.price).toFixed(1)}`
-            let y = respData.price
-            y == undefined ? null :data.push({x:x,y:y})
+            let y = `${parseFloat(respData.price).toFixed(1)}`
+            console.log(y)
+            // let y = respData.price
+            y == "NaN" ? null :data.push({x:x,y:y})
             setTimeout(()=>setRefresh(true),1000)
         }
     },[refresh])
