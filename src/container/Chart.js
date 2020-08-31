@@ -1,11 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { View, Text, ScrollView, Dimensions, StyleSheet, TouchableOpacity } from 'react-native'
-import { AreaChart, Grid, LineChart, XAxis, YAxis  } from 'react-native-svg-charts'
-import * as shape from 'd3-shape'
-
-// import {LineChart} from "react-native-chart-kit";
-import { parse } from 'react-native-svg';
-import { VictoryBar, VictoryChart, VictoryTheme, VictoryArea, VictoryLine, VictoryZoomContainer,VictoryScatter, VictoryAxis } from "victory-native";
+import { VictoryChart, VictoryTheme, VictoryLine, VictoryZoomContainer } from "victory-native";
 
 
 const data = []
