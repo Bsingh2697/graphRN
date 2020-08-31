@@ -44,6 +44,7 @@ const Chart = () => {
             setRefresh(false)
             let respData = JSON.parse(e.data)
             let x = data.length
+            // let y = `${parseFloat(respData.price).toFixed(1)}`
             let y = respData.price
             y == undefined ? null :data.push({x:x,y:y})
             setTimeout(()=>setRefresh(true),1000)
@@ -55,7 +56,7 @@ const Chart = () => {
     return (
         
         <View style={{alignItems:'center'}}>
-          {/* <View style={styles.container}> */}
+          <View style={styles.container}>
                 <VictoryChart  
                 theme={VictoryTheme.material}
                 containerComponent={
@@ -68,18 +69,18 @@ const Chart = () => {
                 <VictoryLine
                     data={data}
                     ref={(ref) => (chartref = ref)} 
+                    padding={20}
+                    animate={true}
+                    scale="linear"
                     />
              </VictoryChart>
-              {/* </View> */}
-            
+              </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,,
-        height:'90%',
         width:'90%',
         justifyContent: "center",
         alignItems: "center",
@@ -89,98 +90,3 @@ const styles = StyleSheet.create({
 
 export default Chart
 
-
-
-
-
-
-//Working
-//   <View style={styles.container}>
-            //         <VictoryChart width={350} theme={VictoryTheme.material}>
-            //         <VictoryLine
-            //             data={data}
-            //             ref={(ref) => (chartref = ref)} />
-            //         </VictoryChart>
-            //     </View>
-
-
-
-
-
-
-
-// { data.length < 0 ? null :<LineChart
-//     data={{
-//         datasets : [{data:data}]
-//     }}
-//     width={Dimensions.get("window").width} // from react-native
-//     height={220}
-//     yAxisLabel="$"
-//     yAxisSuffix="k"
-//     yAxisInterval={1} // optional, defaults to 1
-//     chartConfig={{
-//     backgroundColor: "#e26a00",
-//     backgroundGradientFrom: "#fb8c00",
-//     backgroundGradientTo: "#ffa726",
-//     decimalPlaces: 2, // optional, defaults to 2dp
-//     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-//     labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-//     style: {
-//         borderRadius: 16
-//     },
-//     propsForDots: {
-//         r: "6",
-//         strokeWidth: "2",
-//         stroke: "#ffa726"
-//     }
-//     }}
-//     bezier
-//     style={{
-//     marginVertical: 8,
-//     borderRadius: 16
-//     }}
-// />}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <YAxis
-                    data={data.labels}
-                    style={{ marginBottom: xAxisHeight }}
-                    contentInset={verticalContentInset}
-                    svg={axesSvg}
-                />
-                <View style={{ flex: 1, marginLeft: 10 }}>
-                    { data.length > 0 ? 
-                        <LineChart
-                            style={{ flex: 1 }}
-                            data={data.datasets[data]}
-                            contentInset={verticalContentInset}
-                            animationDuration={500}         
-                            svg={{ stroke: 'red' }}>
-                            <Grid/>
-                        </LineChart>
-                    : null
-                    }
-                    {
-                        data.length > 0 ? (console.log("Data"),console.log(data)) : (console.log("No Data"),console.log(data))
-                    }
-                    <XAxis
-                        style={{ marginHorizontal: -10, height: xAxisHeight }}
-                        data={data}
-                        formatLabel={(value, index) => index}
-                        contentInset={{ left: 10, right: 10 }}
-                        svg={axesSvg}
-                    />
-                </View> */}
